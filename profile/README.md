@@ -7,4 +7,5 @@ I'm John, an AI / MLOps engineer from South Wales. I use this github organisatio
 Feel free to reach out about anything via any of the following links!
 
 - [linkedin](www.linkedin.com/in/john-stokes-87b481190)
+- [blog](https://cashewe.github.io/)
 - [github (personal)](https://github.com/JohnStokes228)

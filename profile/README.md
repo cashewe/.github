@@ -11,3 +11,11 @@ You can find more from me at the following links!
 - [github (personal)](https://github.com/JohnStokes228)
 - [dev.to](https://dev.to/johnstokes228) (same content as blog)
 - [medium](https://medium.com/@johnstokes_38682) (same content as blog)
+
+## My tools
+
+### Darn - The mathematically optimal chunker
+[![darn-it monthly downloads](https://img.shields.io/pypi/dm/darn-it.svg?label=monthly%20downloads)](https://pypi.org/project/darn-it/) [![darn-it total downloads](https://img.shields.io/pypi/dt/darn-it.svg?label=total%20downloads)](https://pypi.org/project/darn-it/)
+
+### Adran - The context rehydrator
+[![adran monthly downloads](https://img.shields.io/pypi/dm/adran.svg?label=monthly%20downloads)](https://pypi.org/project/adran/) [![adran total downloads](https://img.shields.io/pypi/dt/adran.svg?label=total%20downloads)](https://pypi.org/project/adran/)

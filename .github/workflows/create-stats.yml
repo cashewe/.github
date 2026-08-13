@@ -47,7 +47,7 @@ jobs:
                 --arg message "$downloads" \
                 '{
                   schemaVersion: 1,
-                  label: "monthly downloads",
+                  label: " ${package} monthly downloads",
                   message: $message
                 }' > "$file"
 

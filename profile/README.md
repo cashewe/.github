@@ -15,7 +15,7 @@ You can find more from me at the following links!
 ## My tools
 
 ### Darn - The mathematically optimal chunker
-[![darn-it monthly downloads](https://img.shields.io/pypi/dm/darn-it.svg?label=monthly%20downloads)](https://pypi.org/project/darn-it/) [![darn-it total downloads](https://img.shields.io/pypi/dt/darn-it.svg?label=total%20downloads)](https://pypi.org/project/darn-it/)
+[![darn-it monthly downloads](https://static.pepy.tech/badge/darn-it/month)](https://pepy.tech/project/darn-it)
 
 ### Adran - The context rehydrator
-[![adran monthly downloads](https://img.shields.io/pypi/dm/adran.svg?label=monthly%20downloads)](https://pypi.org/project/adran/) [![adran total downloads](https://img.shields.io/pypi/dt/adran.svg?label=total%20downloads)](https://pypi.org/project/adran/)
+[![adran monthly downloads](https://static.pepy.tech/badge/adran/month)](https://pepy.tech/project/adran)

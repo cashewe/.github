@@ -14,6 +14,8 @@ You can find more from me at the following links!
 
 ## My tools
 
+*all stats come from pypi, and exclude mirrors*
+
 ### Darn - The mathematically optimal chunker
 
 [![darn-it monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fdarn-it.json)](https://pypi.org/project/darn-it/)

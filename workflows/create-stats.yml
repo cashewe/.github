@@ -36,6 +36,11 @@ jobs:
 
             echo "Updating ${package}..."
 
+            existing_message=""
+            if [ -f "$file" ]; then
+              existing_message=$(jq -r '.message // empty' "$file" 2>/dev/null || true)
+            fi
+
             if raw_downloads=$(curl \
               --fail \
               --silent \
@@ -45,27 +50,36 @@ jobs:
               downloads=$(printf '%s' "$raw_downloads" | jq -r '.data.last_month // empty')
 
               if [ -z "$downloads" ] || [ "$downloads" = "null" ]; then
-                downloads="n/a"
-                echo "No monthly download value available for ${package}; using fallback badge text."
+                if [[ "$existing_message" =~ ^[0-9]+$ ]]; then
+                  downloads="$existing_message"
+                  echo "No new monthly value for ${package}; keeping existing integer value: ${downloads}."
+                else
+                  downloads="n/a"
+                  echo "No monthly download value available for ${package}; using fallback badge text."
+                fi
               fi
-
-              jq -n \
-                --arg message "$downloads" \
-                '{
-                  schemaVersion: 1,
-                  label: "monthly downloads",
-                  message: $message
-                }' > "$file"
-
-              echo "${package}: ${downloads}"
             else
-              echo "Failed to retrieve ${package}; keeping existing value."
-
-              if [ ! -f "$file" ]; then
-                echo "No existing value for ${package}; failing."
-                exit 1
+              if [[ "$existing_message" =~ ^[0-9]+$ ]]; then
+                downloads="$existing_message"
+                echo "Failed to retrieve ${package}; keeping existing integer value: ${downloads}."
+              else
+                downloads="n/a"
+                echo "Failed to retrieve ${package}; no valid previous integer value was available, using fallback badge text."
               fi
             fi
+
+            label="${package} monthly downloads"
+
+            jq -n \
+              --arg message "$downloads" \
+              --arg label "$label" \
+              '{
+                schemaVersion: 1,
+                label: $label,
+                message: $message
+              }' > "$file"
+
+            echo "${package}: ${downloads}"
           done
 
       - name: Commit changes

@@ -1,5 +1,5 @@
 {
   "schemaVersion": 1,
-  "label": "monthly downloads",
-  "message": "2517"
+  "label": " ${package} monthly downloads",
+  "message": "2904"
 }

@@ -21,19 +21,24 @@ You can find more from me at the following links!
 #### Darn - The mathematically optimal chunker
 
 [![darn-it monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fdarn-it.json)](https://pypi.org/project/darn-it/)
+[![darn-it lifetime downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fdarn-it-lifetime.json)](https://pypi.org/project/darn-it/)
 
 #### Adran - The context rehydrator
 
 [![adran monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fadran.json)](https://pypi.org/project/adran/)
+[![adran lifetime downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fadran-lifetime.json)](https://pypi.org/project/adran/)
 
 ### Operational Tooling
 
 #### Camau - The configurable message router (prerelease)
 
 [![camau monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fcamau.json)](https://pypi.org/project/camau/)
+[![camau lifetime downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fcamau-lifetime.json)](https://pypi.org/project/camau/)
 
 #### Llun - The architectural linter (experiment, not recommended for use)
 
 [![llun monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fllun.json)](https://pypi.org/project/llun/)
+[![llun lifetime downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fllun-lifetime.json)](https://pypi.org/project/llun/)
 
 [![llun-mcp monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fllun-mcp.json)](https://pypi.org/project/llun-mcp/)
+[![llun-mcp lifetime downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fllun-mcp-lifetime.json)](https://pypi.org/project/llun-mcp/)

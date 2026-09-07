@@ -32,13 +32,20 @@ jobs:
 
           for package in "${packages[@]}"; do
             file="profile/stats/${package}.json"
+            lifetime_file="profile/stats/${package}-lifetime.json"
             url="https://pypistats.org/api/packages/${package}/recent?period=month"
+            lifetime_url="https://pypistats.org/api/packages/${package}/overall?period=all"
 
             echo "Updating ${package}..."
 
             existing_message=""
             if [ -f "$file" ]; then
               existing_message=$(jq -r '.message // empty' "$file" 2>/dev/null || true)
+            fi
+
+            existing_lifetime_message=""
+            if [ -f "$lifetime_file" ]; then
+              existing_lifetime_message=$(jq -r '.message // empty' "$lifetime_file" 2>/dev/null || true)
             fi
 
             if raw_downloads=$(curl \
@@ -68,7 +75,35 @@ jobs:
               fi
             fi
 
+            if raw_lifetime_downloads=$(curl \
+              --fail \
+              --silent \
+              --show-error \
+              --retry 3 \
+              "$lifetime_url"); then
+              lifetime_downloads=$(printf '%s' "$raw_lifetime_downloads" | jq -r '[.data[] | select(.category == "without_mirrors") | .downloads] | add // empty')
+
+              if [ -z "$lifetime_downloads" ] || [ "$lifetime_downloads" = "null" ]; then
+                if [[ "$existing_lifetime_message" =~ ^[0-9]+$ ]]; then
+                  lifetime_downloads="$existing_lifetime_message"
+                  echo "No lifetime value for ${package}; keeping existing integer value: ${lifetime_downloads}."
+                else
+                  lifetime_downloads="n/a"
+                  echo "No lifetime download value available for ${package}; using fallback badge text."
+                fi
+              fi
+            else
+              if [[ "$existing_lifetime_message" =~ ^[0-9]+$ ]]; then
+                lifetime_downloads="$existing_lifetime_message"
+                echo "Failed to retrieve lifetime downloads for ${package}; keeping existing integer value: ${lifetime_downloads}."
+              else
+                lifetime_downloads="n/a"
+                echo "Failed to retrieve lifetime downloads for ${package}; no valid previous integer value was available, using fallback badge text."
+              fi
+            fi
+
             label="${package} monthly downloads"
+            lifetime_label="${package} lifetime downloads"
 
             jq -n \
               --arg message "$downloads" \
@@ -79,7 +114,16 @@ jobs:
                 message: $message
               }' > "$file"
 
-            echo "${package}: ${downloads}"
+            jq -n \
+              --arg message "$lifetime_downloads" \
+              --arg label "$lifetime_label" \
+              '{
+                schemaVersion: 1,
+                label: $label,
+                message: $message
+              }' > "$lifetime_file"
+
+            echo "${package}: ${downloads} monthly, ${lifetime_downloads} lifetime"
           done
 
       - name: Commit changes

@@ -16,15 +16,23 @@ You can find more from me at the following links!
 
 *all stats come from pypi, and exclude mirrors*
 
-### Darn - The mathematically optimal chunker
+### AI Context Management 
+
+#### Darn - The mathematically optimal chunker
 
 [![darn-it monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fdarn-it.json)](https://pypi.org/project/darn-it/)
 
-### Adran - The context rehydrator
+#### Adran - The context rehydrator
 
 [![adran monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fadran.json)](https://pypi.org/project/adran/)
 
-### Llun - The architectural linter (experiment, not recommended for use)
+### Operational Tooling
+
+#### Camau - The configurable message router (prerelease)
+
+[![camau monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fcamau.json)](https://pypi.org/project/camau/)
+
+#### Llun - The architectural linter (experiment, not recommended for use)
 
 [![llun monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fllun.json)](https://pypi.org/project/llun/)
 

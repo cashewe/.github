@@ -137,9 +137,9 @@ jobs:
               fi
             fi
 
-            label="monthly downloads"
-            lifetime_label="total downloads"
-            version_label="version"
+            label=""
+            lifetime_label=""
+            version_label=""
 
             jq -n \
               --arg message "$downloads" \

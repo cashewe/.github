@@ -30,7 +30,7 @@ You can find more from me at the following links!
 
 ### Operational Tooling
 
-#### Camau - The configurable message router (prerelease)
+#### Camau - The configurable message router
 
 [![camau monthly downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fcamau.json)](https://pypi.org/project/camau/)
 [![camau lifetime downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcashewe%2F.github%2Fmain%2Fprofile%2Fstats%2Fcamau-lifetime.json)](https://pypi.org/project/camau/)

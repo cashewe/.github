@@ -26,6 +26,7 @@ jobs:
           packages=(
             "darn-it"
             "adran"
+            "camau"
             "llun"
             "llun-mcp"
           )
@@ -33,8 +34,10 @@ jobs:
           for package in "${packages[@]}"; do
             file="profile/stats/${package}.json"
             lifetime_file="profile/stats/${package}-lifetime.json"
+            version_file="profile/stats/${package}-version.json"
             url="https://pypistats.org/api/packages/${package}/recent?period=month"
             lifetime_url="https://pypistats.org/api/packages/${package}/overall?period=all"
+            version_url="https://pypi.org/pypi/${package}/json"
 
             echo "Updating ${package}..."
 
@@ -102,8 +105,41 @@ jobs:
               fi
             fi
 
-            label="${package} monthly downloads"
-            lifetime_label="${package} lifetime downloads"
+            existing_version_message=""
+            if [ -f "$version_file" ]; then
+              existing_version_message=$(jq -r '.message // empty' "$version_file" 2>/dev/null || true)
+            fi
+
+            if raw_version=$(curl \
+              --fail \
+              --silent \
+              --show-error \
+              --retry 3 \
+              "$version_url"); then
+              version=$(printf '%s' "$raw_version" | jq -r '.info.version // empty')
+
+              if [ -z "$version" ] || [ "$version" = "null" ]; then
+                if [ -n "$existing_version_message" ]; then
+                  version="$existing_version_message"
+                  echo "No version value for ${package}; keeping existing value: ${version}."
+                else
+                  version="n/a"
+                  echo "No version value available for ${package}; using fallback badge text."
+                fi
+              fi
+            else
+              if [ -n "$existing_version_message" ]; then
+                version="$existing_version_message"
+                echo "Failed to retrieve version for ${package}; keeping existing value: ${version}."
+              else
+                version="n/a"
+                echo "Failed to retrieve version for ${package}; no valid previous value was available, using fallback badge text."
+              fi
+            fi
+
+            label="monthly downloads"
+            lifetime_label="total downloads"
+            version_label="version"
 
             jq -n \
               --arg message "$downloads" \
@@ -123,7 +159,16 @@ jobs:
                 message: $message
               }' > "$lifetime_file"
 
-            echo "${package}: ${downloads} monthly, ${lifetime_downloads} lifetime"
+            jq -n \
+              --arg message "$version" \
+              --arg label "$version_label" \
+              '{
+                schemaVersion: 1,
+                label: $label,
+                message: $message
+              }' > "$version_file"
+
+            echo "${package}: ${downloads} monthly, ${lifetime_downloads} lifetime, version ${version}"
           done
 
       - name: Commit changes

@@ -9,7 +9,6 @@ You can find more from me at the following links!
 - [linkedin](www.linkedin.com/in/john-stokes-87b481190)
 - [blog](https://cashewe.github.io/)
 - [github (personal)](https://github.com/JohnStokes228)
-- [dev.to](https://dev.to/johnstokes228) (same content as blog)
 - [medium](https://medium.com/@johnstokes_38682) (same content as blog)
 
 ## My tools
